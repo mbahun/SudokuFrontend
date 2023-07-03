@@ -1,0 +1,21 @@
+﻿@page "/highscores"
+@using SudokuFrontend.Components
+
+<h1>Highscores</h1>
+
+@if (ShowScoreError) {
+    <div class="alert alert-danger" role="alert">
+        <p>@Error</p>
+    </div>
+}
+
+<div class="row">
+    <div class="col">
+        <HighscoreTable Highscores="HighscoresList" />
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        @*Place for pagination / filters... (https://code-maze.com/blazor-webassembly-pagination/)*@
+    </div>
+</div>

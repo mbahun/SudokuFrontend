@@ -1,0 +1,31 @@
+﻿@if (Highscores != null && Highscores.Count > 0) {
+    <table class="table" style="width: 40%;">
+        <thead>
+            <tr>
+                <th scope="col">Nickname</th>
+                <th scope="col">Score</th>
+                <th scope="col">Last played</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var highscore in Highscores) {
+                <tr>
+                    <td class="align-left">
+                        @highscore.Nickname
+                    </td>
+                    <td class="align-left">
+                        @highscore.Score
+                    </td>
+                    <td class="align-left">
+                        @highscore.LastPlayedDate
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else {
+    <span>
+        Loading highscores...
+    </span>
+}

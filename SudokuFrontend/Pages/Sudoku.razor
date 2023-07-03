@@ -1,0 +1,53 @@
+﻿@page "/sudoku"
+@attribute [Authorize(Roles = "Player")]
+@inject IJSRuntime JsRuntime
+@implements IDisposable
+
+<h1>Sudoku</h1>
+
+@if (ShowErrors) {
+    <div class="alert alert-danger" role="alert">
+        <p>@Error</p>
+    </div>
+}
+
+<table>
+    <tbody>
+        @for (int i = 0; i < 9; i++) {
+            <tr>
+                @for (int j = 0; j <= 8; j++) {
+                    var inputNumber = (i * 9) + j;
+                    <td>
+                        <input @bind-value="_cellValues[(i*9)+j]" @oninput='(ChangeEventArgs arg) => OnCellChanged(arg, inputNumber)' />
+                    </td>
+                    @if ((j + 1) % 3 == 0 && j < 8) {
+                        <td> &nbsp;&nbsp;&nbsp;&nbsp; </td>
+                    }
+                }
+            </tr>
+
+            @if ((i + 1) % 3 == 0) {
+                <tr>
+                    @for (int j = 0; j < 9 + 2; j++) {
+                        <td> &nbsp;&nbsp;&nbsp;&nbsp; </td>
+                    }
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+<td> &nbsp;&nbsp;&nbsp;&nbsp; </td>
+<div>
+    <button type="button" class="btn btn-success rounded-pill px-4" @onclick="CheckResult">Check result</button>
+    <button type="button" class="btn btn-success rounded-pill px-4" @onclick="SaveResult">Save result</button>
+</div>
+<td> &nbsp;&nbsp;&nbsp;&nbsp; </td>
+<div>
+    <button type="button" class="btn btn-warning rounded-pill px-3" @onclick="PlayNew">Play new game</button>
+</div>
+
+
+
+
+
+

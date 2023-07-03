@@ -1,0 +1,10 @@
+﻿<AuthorizeView>
+    <Authorized>
+        <font color="#00f0ff"> <b> Hello, @context.User.Identity.Name! </b>  </font>
+        <a href="logout">Log out</a>
+    </Authorized>
+    <NotAuthorized>
+        <a href="registration">Register</a>
+        <a href="login">Log in</a>
+    </NotAuthorized>
+</AuthorizeView>

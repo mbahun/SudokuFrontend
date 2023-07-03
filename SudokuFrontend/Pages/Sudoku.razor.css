@@ -1,0 +1,25 @@
+﻿
+h3 {
+    color: red;
+    font-style: italic;
+    text-shadow: 2px 2px 2px gray;
+}
+
+input {
+    text-align: center;
+    width: 100%;
+}
+
+table {
+    width: 30%;
+    border-collapse: collapse;
+}
+
+tr, td {
+    border-collapse: collapse;
+    border: 1px hidden black;
+    padding-top: 0;
+    padding-bottom: 0;
+    text-align: center;
+}
+
