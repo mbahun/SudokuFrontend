@@ -14,6 +14,7 @@ namespace SudokuFrontend.Pages {
         [Inject]
         private ISudokuHttpRepository SudokuRepository { get; set; }
         private string[] _cellValues = new string[120];
+        private string[] _cellStyle = new string[120];
         private string Error { get; set; }
         private bool ShowErrors { get; set; }
         protected override void OnInitialized() {
@@ -30,6 +31,10 @@ namespace SudokuFrontend.Pages {
 
         private Task OnCellChanged(ChangeEventArgs e, int i) {
             int index = 0, value=0;
+
+            if (_cellStyle[i] == "font-weight:bold") {
+                return Task.CompletedTask;
+            }
 
             if (int.TryParse(i.ToString(), out index)) {
                 
@@ -58,9 +63,11 @@ namespace SudokuFrontend.Pages {
 
                 for (int i = 0; i < 81; i++) {
                     _cellValues[i] = "";
+                    _cellStyle[i] = "font-weight:normal";
 
                     if (bytes[i] != 0) {
                         _cellValues[i] = bytes[i].ToString();
+                        _cellStyle[i] = "font-weight:bold";
                     }
                 }
             } 

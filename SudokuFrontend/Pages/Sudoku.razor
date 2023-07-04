@@ -18,7 +18,7 @@
                 @for (int j = 0; j <= 8; j++) {
                     var inputNumber = (i * 9) + j;
                     <td>
-                        <input @bind-value="_cellValues[(i*9)+j]" @oninput='(ChangeEventArgs arg) => OnCellChanged(arg, inputNumber)' />
+                        <input style="@_cellStyle[(i*9)+j]" @bind-value="_cellValues[(i*9)+j]" @oninput='(ChangeEventArgs arg) => OnCellChanged(arg, inputNumber)' />
                     </td>
                     @if ((j + 1) % 3 == 0 && j < 8) {
                         <td> &nbsp;&nbsp;&nbsp;&nbsp; </td>
